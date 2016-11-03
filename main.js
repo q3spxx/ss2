@@ -1,4 +1,5 @@
-var db = require('db')
+'use strict'
+
 var express = require('express')
 var bp = require("body-parser");
 
@@ -10,37 +11,16 @@ app.get("*", function (req, res) {
 	res.sendFile(__dirname + req.path)
 })
 app.post("/admin", function (req, res) {
-	db.get().then(function (rows) {
-		res.send(JSON.stringify(rows))
-	}).catch(function (err) {
-		console.log(err)
-		res.send(JSON.stringify({
-			err: true,
-			description: "Database error"
-		}))
-	})
+	console.log(req.body)
+	var admin = require(__dirname + '/admin/controller')
+	switch (req.body.action) {
+		case 'get':
+			admin.get().then((response) => {res.send(JSON.stringify(response))})
+		break
+		case 'delete':
+			admin.del(req.body.params).then((response) => {res.send(JSON.stringify(response))})
+		break
+	}
 })
-//db.add('Расплата', 1)
-//db.set(3, 'marvel')
-//console.log(movies)
-// function first () {
-// 	return new Promise(function (resolve, reject) {
-// 		setTimeout(function () {
-// 			resolve('first')
-// 		}, 2000)
-// 	})
-// }
-
-// function second (func) {
-// 	return new Promise(function (resolve, reject) {
-// 		resolve(func + ' second')
-// 	})
-// }
-
-// first().then(function (func) {
-// 	return second(func)
-// }).then(function (func2) {
-// 	console.log(func2)
-// })
 
 app.listen(80)

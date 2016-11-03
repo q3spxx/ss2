@@ -5,7 +5,8 @@
 	<title>Admin</title>
 </head>
 <body>
-	<button onclick="test()">request</button>
+	<button onclick="test({action: 'get'})">get</button>
+	<button onclick="test({action: 'delete', params: {select: {rowid: 3}, table: 'movies'}})">del</button>
 	<script src="../lib/jquery-3.0.0.min.js" type="text/javascript"></script>
 	<script src="common.js" type="text/javascript"></script>
 </body>
