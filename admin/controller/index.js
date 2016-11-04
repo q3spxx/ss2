@@ -1,25 +1,29 @@
 'use strict'
 
-var db = require('db')
-
-var Admin = {
-	get: function () {
-		let model = db.getModel('movies')
-		return new Promise((resolve, reject) => {
-			model.get(["rowid", "*"]).then((rows) => {
-				resolve(rows)
+class Admin {
+	handler (req) {
+		try {
+			let module = require("../modules/" + req.body.module)
+			switch (req.body.action) {
+				case "get":
+					return module.get(req.body.params)
+				break
+				case "del":
+					return module.del(req.body.params)
+				break
+				case 'add':
+					return module.add(req.body.params)
+				break
+				case 'update':
+					return module.update(req.body.params)
+				break
+			}
+		} catch (e) {
+			console.log(e)
+			return new Promise((resolve, reject) => {
+				throw e
 			})
-		})
-	},
-	del: function (params) {
-		let model = db.getModel(params.table)
-		return new Promise((resolve, reject) => {
-			model.del(params.select).then((rows) => {
-				resolve(rows)
-			})
-		})
+		}
 	}
 }
-
-exports.get = Admin.get
-exports.del = Admin.del
+module.exports = new Admin()
