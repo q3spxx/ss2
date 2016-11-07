@@ -1,11 +1,11 @@
 'use strict'
 
-var Module = require('./module.js')
+var Module = require('../module.js')
 
 class Main {
 	constructor () {
-		this.table = 'movies'
 		this.__proto__ = Module
+		this.table = 'movies'
 	}
 }
 module.exports = new Main()
