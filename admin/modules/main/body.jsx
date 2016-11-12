@@ -7,7 +7,7 @@ export default class Body extends React.Component {
 	render () {
 		return (
 
-			<div className="body">
+			<div className="body container-fluid">
 				<div className="bookmarks">
 					<div className="bookmark">Расписание</div>
 					<div className="bookmark">Шаблоны</div>

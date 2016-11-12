@@ -1,14 +1,15 @@
 * {
 	margin: 0px;
+	background-color: transparent;
 }
-
+html {
+	background-color: #eee;
+}
+body {
+	background-color: transparent;
+}
 .top {
-	height: 100px;
-	background-color: #888;
-}
-.body {
-	height: 300px;
-	background-color: #888;
+	height: 70px;
 }
 .bookmarks {
 	height: 30px;
@@ -32,20 +33,143 @@
 	background-color: #e6e6e6;
 }
 .content {
-	height: 300px;
-	background-color: white;
+	height: 450px;
+	background-color: #fff;
 	border: 1px solid #ccc;
+	padding: 2px;
+	border-radius: 0px 0px 2px 2px;
+}
+.schedule {
+	height: inherit;
+}
+.scheduleList {
+	height: inherit;
+	padding-left: 1px;
+}
+.moviesList {
+	height: inherit;
+	padding-right: 1px;
 }
 .moviesList-buttons {
-	height: 50px;
+	height: 34px;
+	margin-bottom: 2px;
+}
+.moviesList > ul {
+	height: 408px;
+	overflow-y: scroll;
+	border: 1px solid #ccc;
 	background-color: #ccc;
+	border-radius: 2px;
+}
+.movie {
+	margin-top: 1px;
+	margin-left: 1px;
+	margin-right: 1px;
+	height: 59px;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #aaa;
+	overflow: hidden;
+}
+.movie:hover {
+	cursor: pointer;
+}
+.movie:hover > .movieHover {
+	width: 4px;
+}
+.movieHover {
+	position: absolute;
+	margin-top: -6px;
+	margin-left: -6px;
+	width: 0px;
+	height: 57px;
+	background-color: #5cb85c;
+	transition-property: width;
+	transition-duration: 0.4s;
+}
+.movieName {
+	height: 32px;
+	font-size: 13px;
+	color: #555;
+	overflow: hidden;
+	line-height: 14px;
+	margin-bottom: 2px;
+}
+.movieFormat {
+	width: 30%;
+	font-size: 11px;
+	float: left;
+	color: #888;
+}
+.movieDuration {
+	font-size: 11px;
+	width: 30%;
+	float: left;
+	color: #888;
+}
+.movieGenre {
+	font-size: 11px;
+	width: 40%;
+	float: left;
+	color: #888;
+}
+.selected {
+	background-color: rgb(174, 226, 174);
+	box-shadow: 0 0 4px rgba(92, 184, 92, 0.5);
+	border: 1px solid rgba(92, 184, 92, 0.1);
+}
+.scheduleList-buttons {
+	margin-bottom: 1px;
+}
+.film {
+	display: block;
+	height: 60px;
+	background-color: #eee;
+	border: 1px solid #aaa;
+	padding: 6px;
+	margin-top: 1px;
+}
+.filmTitle {
+	float: left;
+	width: 20%;
+}
+.filmName {
+	height: 32px;
+	font-size: 13px;
+	color: #555;
+	overflow: hidden;
+	line-height: 14px;
+}
+.filmFormat {
+	font-size: 11px;
+	color: #888;
+}
+.filmSessions {
+	float: left;
+	width: 68%;
+}
+.filmTime {
+	margin-left: 4px;
+	float: left;
+	font-size: 11px;
+	margin-right: 4px;
+}
+.filmButtons {
+	float: left;
+	width: 12%;
+	text-align: center;
 }
 .modalWin {
-	position: fixed;
+	position: absolute;
+	z-index: 1000;
 	left: -200px;
 	width: 400px;
 	margin-left: 50%;
 	min-height: 30px;
 	padding: 10px;
-	background-color: #f00;
+	background-color: #aaa;
+}
+.formTitle {
+	font-size: 20px;
+	text-align: center;
 }

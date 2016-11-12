@@ -3,20 +3,20 @@
 var db = require('db')
 
 class Module {
-	update (params) {
-		let model = db.getModel(this.table)
-		return model.update(params.keys, params.selector)
+	update (table, params) {
+		let model = db.getModel(this.table[Number(table)])
+		return model.update(params.keys, params.selectors)
 	}
-	get (params) {
-		let model = db.getModel(this.table)
+	get (table, params) {
+		let model = db.getModel(this.table[Number(table)])
 		return model.get(params.keys, params.selectors)
 	}
-	del (params) {
-		let model = db.getModel(this.table)
+	del (table, params) {
+		let model = db.getModel(this.table[Number(table)])
 		return model.del(params.selectors)
 	}
-	add (params) {
-		let model = db.getModel(this.table)
+	add (table, params) {
+		let model = db.getModel(this.table[Number(table)])
 		return model.add(params.keys)
 	}
 }

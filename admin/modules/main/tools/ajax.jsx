@@ -17,6 +17,17 @@ import $ from 'jquery'
 			})
 		})
 	}
+	getBody () {
+		return {
+			module: '',
+			table: 0,
+			action: '',
+			params: {
+				keys: {},
+				selectors: {}
+			}
+		}
+	}
 }
 
 export default new Ajax()

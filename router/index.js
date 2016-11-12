@@ -16,6 +16,7 @@ class Router {
 		for (var url in this.postPaths) {
 			app.post("/" + url, (req, res) => {
 				var controller = require(this.dir + this.postPaths[url])
+				console.log(req.body)
 				controller.handler(req).then((response) => {
 					res.send(JSON.stringify(response))
 				}, (err) => {
