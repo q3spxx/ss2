@@ -1,0 +1,22 @@
+{
+  "name": "src",
+  "version": "0.0.1",
+  "description": "ss2-src",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q3spxx/ss2.git"
+  },
+  "author": "q3spxx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q3spxx/ss2/issues"
+  },
+  "homepage": "https://github.com/q3spxx/ss2#readme",
+  "devDependencies": {
+    "webpack": "^1.13.3"
+  }
+}
