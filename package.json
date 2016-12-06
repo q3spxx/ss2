@@ -1,0 +1,26 @@
+{
+  "name": "screen-server",
+  "version": "2.0.1",
+  "description": "alpha",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "sqlite3": "^3.1.8"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q3spxx/ss2.git"
+  },
+  "author": "q39",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/q3spxx/ss2/issues"
+  },
+  "homepage": "https://github.com/q3spxx/ss2#readme"
+}
