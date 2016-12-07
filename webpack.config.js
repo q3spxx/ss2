@@ -3,7 +3,7 @@ require('webpack')
 module.exports = {
 	entry: './main.jsx',
 	output: {
-		path: '../public/admin/build',
+		path: '../public/build',
 		filename: 'main.js'
 	},
 	module: {

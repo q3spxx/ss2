@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devserver": "webpack-dev-server --inline --content-base ../public/admin/build --port 3000 --host 0.0.0.0 --watch"
+    "devserver": "webpack-dev-server --inline --content-base ../public/build --port 3000 --host 0.0.0.0 --watch"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.26.1",
     "flux": "^3.1.0",
+    "jquery": "^3.1.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "material-ui": "^0.16.4",
