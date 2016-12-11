@@ -1,0 +1,7 @@
+@import '../less/palette.less';
+
+.scheduleList {
+	background-color: @backgroundColor;
+	width: 70%;
+	float: left;
+}

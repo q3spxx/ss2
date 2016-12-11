@@ -1,0 +1,16 @@
+@import '../less/palette.less';
+@import '../less/sizes.less';
+
+.auth-form {
+	width: 256px;
+	margin: auto;
+	margin-top: 128px;
+	border: @mainBorderSize solid @mainBorderColor;
+	padding: 20px;
+	border-radius: 4px;
+	background-color: @backgroundColor;
+	text-align: center;
+}
+.auth-title {
+	font-size: 20px;
+}

@@ -1,0 +1,14 @@
+@import '../less/palette.less';
+
+.main-tabs {
+	background-color: @firstMainColor;
+}
+.main-tab {
+	background-color: @firstMainColor;
+	text-transform: none !important;
+}
+.btn {
+}
+.btn-add {
+	margin-bottom: 4px;
+}

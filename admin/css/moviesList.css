@@ -1,0 +1,48 @@
+@import '../less/palette.less';
+@import '../less/sizes.less';
+
+.moviesList {
+	background-color: @containerField;
+	width: 30%;
+	float: left;
+}
+.moviesList > ul {
+	padding: 0px 2px 0px 2px;
+	margin: 0px;
+}
+.movie {
+	display: block;
+	padding: 4px;
+	margin-bottom: 4px;
+	background-color: @secondMainColor;
+	border: @rowBorderSize solid @rowBorderColor;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.5);
+}
+.movie-name {
+	font-size: @midTextSize;
+}
+.movie-format {
+	font-size: @lowTextSize;
+	color: @lowTextColor;
+}
+.movie-duration {
+	font-size: @lowTextSize;
+	color: @lowTextColor;
+}
+.movie-genre {
+	font-size: @lowTextSize;
+	color: @lowTextColor;
+}
+.movie-rating {
+	position: absolute;
+	margin-top: -4px;
+	margin-left: -35px;
+	width: 32px;
+	text-align: center;
+	left: 30%;
+	padding: 4px 0px 4px 0px;
+	background-color: @thirdMainColor;
+	font-size: @midTextSize;
+	font-weight: bold;
+	color: @backgroundColor;
+}

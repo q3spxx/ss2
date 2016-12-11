@@ -1,53 +1,78 @@
 import React from 'react'
-import Schedule from './schedule.jsx'
-import Auth from './auth.jsx'
-import Provider from 'material-ui/styles/MuiThemeProvider'
 import {Tabs, Tab} from 'material-ui'
+import {Snackbar} from 'material-ui'
 import {Ajax} from '../../tools.jsx'
 import {Router, Route, hashHistory} from 'react-router'
+import dispatcher from './dispatcher.jsx'
+import {Authorization} from './store.jsx'
+import StoreConsts from './storeConsts.jsx'
+
+//Material-ui
+import Provider from 'material-ui/styles/MuiThemeProvider'
+
+//css
+require('../css/main.css')
+
+// Components
+import Auth from './auth.jsx'
+import Main from './main.jsx'
+import Admin from './admin.jsx'
+import Screens from './screens.jsx'
+
+//fix react-router warning message
+Router.prototype.componentWillReceiveProps = function(nextProps) {
+  let components = [];
+  function grabComponents(element) {
+    // This only works for JSX routes, adjust accordingly for plain JS config
+    if (element.props && element.props.component) {
+      components.push(element.props.component);
+    }
+    if (element.props && element.props.children) {
+      React.Children.forEach(element.props.children, grabComponents);
+    }
+  }
+  grabComponents(nextProps.routes || nextProps.children);
+  components.forEach(React.createElement); // force patching
+};
 
 export default class App extends React.Component {
 	constructor (props) {
 		super(props)
-
-		let isAuth = false
-		if (isAuth in localStorage) {
-			isAuth = localStorage.isAuth
-		} else {
-			localStorage.isAuth = isAuth
-		}
-
 		this.state = {
-			tab: 1,
-			isAuth: isAuth
+			error: Authorization.getError(),
+			errorMess: Authorization.getErrorMess()
 		}
+		this.onChange = this.onChange.bind(this)
 	}
-	Authorizate () {
-		localStorage.isAuth = true
+	onChange () {
 		this.setState({
-			isAuth: true
+			error: Authorization.getError(),
+			errorMess: Authorization.getErrorMess()
 		})
 	}
 	componentDidMount() {
-		let body = Ajax.getBody()
-		body.module = 'main'
-		body.table = 0
-		body.action = "get"
-		body.params.keys.key0 = "rowid"
-		body.params.keys.key1 = "*"
-		Ajax.send("/admin", body).then((res) => {
-			console.log(res)
-		})
+		Authorization.addChangeListener(this.onChange)
+		Authorization.addErrorListener(this.onChange)
+		dispatcher.dispatch({actionType: StoreConsts.AUTORIZATION})
+	}
+	componentWillUnmount () {
+		Authorization.removeChangeListener(this.onChange)
+		Authorization.removeErrorListener(this.onChange)
 	}
 	render () {
 		return (
 			<Provider>
-				{
-					!this.state.isAuth ? <Auth /> :
-					<Router history={hashHistory}>
-						<Route path="/" component={Schedule} />
-					</Router>
-				}
+				<div>
+					{
+						<Router history={hashHistory}>
+							<Route path="auth" component={Auth} />
+							<Route path="main" component={Main} />
+							<Route path="admin" component={Admin} />
+							<Route path="screens" component={Screens} />
+						</Router>
+					}
+					<Snackbar open={this.state.error} message={this.state.errorMess} style={{textAlign: 'center'}} autoHideDuration={4000} />
+				</div>
 			</Provider>
 		)
 	}

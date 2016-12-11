@@ -16,6 +16,9 @@ import $ from 'jquery'
 				data: JSON.stringify(data),
 				success: function (res) {
 					resolve(res)
+				},
+				error: function (err) {
+					reject(err)
 				}
 			})
 		})
@@ -30,11 +33,6 @@ import $ from 'jquery'
 				selectors: {}
 			}
 		}
-	}
-	get () {
-		$.get("http://xn----7sbeiia6axumbcqds.xn--90aihbhjli4bzf.xn--p1ai/api/getFilms?cityId=113", (data) => {
-			console.log(data)
-		})
 	}
 }
 
