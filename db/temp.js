@@ -1,14 +1,14 @@
 'use strict'
 var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./data.db');
-// db.run("CREATE TABLE pricePolicy (name TEXT, priceGroup TEXT)")
-// //db.run("DROP TABLE test3")
+// db.run("CREATE TABLE users (login TEXT, pass TEXT, token TEXT)")
+// db.run("DROP TABLE users")
 // db.run("DELETE FROM schedule WHERE rowid=3")
 // db.run("ALTER TABLE schedule ADD sortId INT")
-// db.run("INSERT INTO data (name, value) VALUES ('price', '[]')")
-// db.run("UPDATE data SET value='[2, 5]' WHERE name='price'")
+// db.run("INSERT INTO users (login, pass, token) VALUES ('q3spxx', '69ecd37d30066d9ba044de0f94a67a6fb8ce95d6','')")
+// db.run("UPDATE users SET token='[]' WHERE login='q3spxx'")
 // db.run("ALTER TABLE schedule ADD sessions TEXT");
-db.all("SELECT rowid, * FROM movies", function (err, rows) {
+db.all("SELECT rowid, * FROM data", function (err, rows) {
  	console.log(rows)
 })
 

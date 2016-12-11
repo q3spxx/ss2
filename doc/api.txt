@@ -1,0 +1,30 @@
+﻿Таблицы в Main
+0) movies > name: str, format: int, duration: int, genre: int, rating: int
+1) schedule > movieId: int, format: int, sessions: json str, price: json str, rating: int, date: int, sortId: int
+2) data > name: str, value: json str
+3) pricePolicy
+
+Таблицы в Auth
+0) users
+
+Методы работы с бд:
+
+add
+
+пример: add(keys)
+аргументы: keys > {name: 'Batman'}
+
+get
+
+пример: get(keys, selectors)
+аргументы: keys > {key0: 'name'} selectors > {rowid: 2}
+
+update
+
+пример: update(keys, selectors)
+аргументы: keys > {name: 'Batman'} selectors > {rowid: 2}
+
+del
+
+пример: del(selectors)
+аргументы: selectors > {rowid: 2}

@@ -1,6 +1,6 @@
 'use strict'
 
-class Admin {
+class AdminController {
 	handler (req) {
 		try {
 			let module = require("../modules/" + req.body.module)
@@ -32,4 +32,4 @@ class Admin {
 		}
 	}
 }
-module.exports = new Admin()
+module.exports = new AdminController()

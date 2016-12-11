@@ -1,6 +1,7 @@
 'use strict'
 
 var log = require("../logs/")
+var Auth = require('../modules/auth')
 
 class Router {
 	constructor (dir) {
@@ -26,6 +27,15 @@ class Router {
 			switch (req.url) {
 				case '/admin':
 					var controller = require(this.dir + "/controllers/admin.js")
+					controller.handler(req).then((response) => {
+						res.send(JSON.stringify(response))
+					}, (err) => {
+						log.makeNote(err)
+						res.send(JSON.stringify(err))
+					})
+				break
+				case '/auth':
+					var controller = require(this.dir + "/controllers/auth.js")
 					controller.handler(req).then((response) => {
 						res.send(JSON.stringify(response))
 					}, (err) => {
